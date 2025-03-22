@@ -21,6 +21,10 @@ app.use(compression());
 
 app.use("/api/v1", router);
 
+app.get("/", (req, res) => {
+  res.send("Server is running...");
+});
+
 // Error Handling Middleware
 
 app.use((req, res, next) => {
