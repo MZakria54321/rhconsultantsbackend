@@ -2,7 +2,7 @@ const { contactEmailTemplate } = require("../../utilities/renderEmailPath");
 const { sendEmail } = require("../../utilities/sendEmail");
 
 module.exports.sendContactEmail = async (req, res, next) => {
-  const { name, email, message, phone_no, subject } = req.body;
+  const { name, email, message, phone, subject } = req.body;
   try {
     if (!name || !email || !message || !subject) {
       return res.status(400).json({
@@ -15,7 +15,7 @@ module.exports.sendContactEmail = async (req, res, next) => {
       name,
       email,
       message,
-      phone_no,
+      phone,
       subject,
     };
 
