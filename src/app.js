@@ -3,12 +3,12 @@ const cors = require("cors");
 const helmet = require("helmet");
 const compression = require("compression");
 const router = require("./routes");
-const { limiter } = require("./middlewares/limiter");
+// const { limiter } = require("./middlewares/limiter");
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(limiter);
+// app.use(limiter);
 app.use(
   cors({
     origin: "*",
