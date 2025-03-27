@@ -1,15 +1,16 @@
 const { transporter } = require("../configs/transporter");
 
-const sendEmail = async ({ email, subject, htmlContent }) => {
+const sendEmail = async ({ subject, htmlContent }) => {
   const mailOptions = {
     from: `"RH Consultants" <${process.env.FROM_EMAIL}>`,
-    bcc: process.env.TO_EMAIL,
+    to: process.env.TO_EMAIL,
     subject: subject,
     html: htmlContent,
   };
 
   try {
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email Sent", info);
     return true;
   } catch (error) {
     console.error("Error sending email:", error);
